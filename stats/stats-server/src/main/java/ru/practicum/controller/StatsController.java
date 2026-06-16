@@ -1,13 +1,12 @@
 package ru.practicum.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.dto.EndpointHitDto;
+import ru.practicum.dto.endpointHit.EndpointHitDto;
 import ru.practicum.service.StatsService;
 
 @RestController
@@ -18,7 +17,7 @@ public class StatsController {
 
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveHit(@Valid @RequestBody EndpointHitDto hitDto) {
+    public void saveHit(@RequestBody EndpointHitDto hitDto) {
         statsService.saveHit(hitDto);
     }
 }
