@@ -7,8 +7,6 @@ import ru.practicum.mapper.EndpointHitMapper;
 import ru.practicum.model.EndpointHit;
 import ru.practicum.repository.HitRepository;
 
-import java.time.format.DateTimeFormatter;
-
 @Service
 @RequiredArgsConstructor
 public class StatsServiceImpl implements StatsService {
