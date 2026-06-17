@@ -12,6 +12,7 @@ import ru.practicum.repository.HitRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class StatsServiceImpl implements StatsService {
@@ -26,9 +27,8 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<EndpointStatsResponseDto> getStats(String start, String end, List<String> uris, boolean unique) {
-
-        LocalDateTime startTime = LocalDateTime.parse(start, FORMATTER);
-        LocalDateTime endTime = LocalDateTime.parse(end, FORMATTER);
+        LocalDateTime startTime = LocalDateTime.parse(start, EndpointHitMapper.FORMATTER);
+        LocalDateTime endTime = LocalDateTime.parse(end, EndpointHitMapper.FORMATTER);
 
         if (endTime.isBefore(startTime)) {
             throw new ValidationException("End time should be after start time");
